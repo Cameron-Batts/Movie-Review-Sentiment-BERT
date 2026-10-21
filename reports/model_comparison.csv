@@ -1,0 +1,4 @@
+model,reported_accuracy,reported_macro_f1,test_size
+Naive Bayes,0.777674,0.7777,1066
+Logistic regression,0.763602,0.7636,1066
+Fine-tuned BERT,0.84803,0.8477,1066
