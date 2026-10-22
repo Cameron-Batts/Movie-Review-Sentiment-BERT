@@ -3,6 +3,19 @@
 **Portfolio presentation:** Cameron Batts  
 **Contribution context:** Collaborative project; individual responsibilities were not specified in the supplied notebook. Shared results are not represented as sole authorship.
 
+## Validation update - October 22, 2026
+
+| Model | Accuracy | Macro F1 | Weighted F1 |
+| --- | ---: | ---: | ---: |
+| Naive Bayes | 0.7777 | 0.7777 | 0.7777 |
+| Logistic regression | 0.7636 | 0.7636 | 0.7636 |
+
+The seven traditional-classifier cells reproduced the historical rounded results and the 8,530/1,066/1,066 split. BERT training was not run on this CPU environment. The MPS/CUDA workflow now fixes dataset/model revisions, sets the seed before binary-head initialization, limits checkpoint retention and exports aggregate results. Binary-head and Trainer initialization passed a CPU setup check; accelerator execution and the Colab launcher remain untested. The historical team BERT result of 84.80% remains separate and unverified by a new training run.
+
+[Aggregate validation record](reports/validation_results.json). [Repeatable validation script](validation/rerun_analysis.py). Run `python validation/rerun_analysis.py` from the project root. Install `requirements-validation.txt` first; source CSVs stay local.
+
+For training on your Mac, use the main notebook; it selects MPS or CUDA and stops before BERT on CPU. Run all cells and return `reports/gpu_rerun_metrics.json`. A separate [Colab launcher](https://colab.research.google.com/github/Cameron-Batts/Movie-Review-Sentiment-BERT/blob/main/notebooks/movie_review_sentiment_colab.ipynb) is also prepared; it has not been executed here.
+
 ## Business Problem
 Compare methods for classifying movie-review sentiment to support text triage and aggregate feedback analysis.
 
@@ -37,7 +50,7 @@ Dataset and model weights download at runtime. GPU acceleration is recommended; 
 - `portfolio_card.html`: matching portfolio card.
 
 ## Validation and Limitations
-Syntax checked; not rerun. Original results were retained. Dependencies and source revisions are unpinned. Only one seed/split was reported. Prior training overlap for the external checkpoint has not been audited. Stopword removal may remove negation. The new binary head is reinitialized because the original checkpoint head has three outputs; compatible encoder weights are retained.
+Traditional baselines rerun; BERT results remain historical. Fixed dataset/model revisions and an accelerator export are now configured, with package versions recorded. Accelerator training remains pending. Only one seed/split was reported. Prior training overlap for the external checkpoint has not been audited. Stopword removal may remove negation. The new binary head is reinitialized because the original checkpoint head has three outputs; compatible encoder weights are retained.
 
 ## Sources and Contributions
 Dataset: https://huggingface.co/datasets/cornell-movie-review-data/rotten_tomatoes . Checkpoint identifier: `MarieAngeA13/Sentiment-Analysis-BERT`. Source identifiers and applicable attribution are retained. Observe dataset/model terms. This is a collaborative analysis presented by Cameron Batts; the original notebook does not specify individual contributions. Raw reviews and saved person-name excerpts are omitted.

@@ -1,0 +1,16 @@
+{
+  "scope": "CPU setup only; no BERT training was started. Accelerator execution and Colab launcher remain untested.",
+  "binary_head_outputs": 2,
+  "seed_set_before_head_initialization": true,
+  "model_revision": "938fb4267e118e6f892d9825253fd28893d95966",
+  "dataset_revision": "aa13bc287fa6fcab6daf52f0dfb9994269ffea28",
+  "epochs_configured": 2,
+  "trainer_initialized": true,
+  "versions": {
+    "torch": "2.8.0+cpu",
+    "transformers": "4.57.1",
+    "accelerate": "1.11.0",
+    "datasets": "3.6.0",
+    "huggingface-hub": "0.36.2"
+  }
+}
